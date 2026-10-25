@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Belajar Rumus Excel Kelas X</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f1b3a;--p:#6c4bd8;--o:#ff8a3d;--m:#26c6a2;--k:#ff5fa2;--y:#ffd84d}
+*{box-sizing:border-box}
+body{margin:0;font:500 16px/1.55 Nunito,system-ui,sans-serif;color:var(--ink);background:#fdfcf7;background-image:linear-gradient(#e6e0f7 1px,transparent 1px),linear-gradient(90deg,#e6e0f7 1px,transparent 1px);background-size:32px 32px;min-height:100vh}
+#app{max-width:760px;margin:0 auto;padding:14px 14px 60px}
+h1,h2,b.t{font-family:Fredoka,sans-serif;font-weight:600}
+h1{font-size:2rem;margin:.2em 0}h2{margin:.2em 0 .5em}
+.card,.mc,.top{background:#fff;border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink)}
+.card{padding:18px;margin:12px 0}
+.top{display:flex;gap:12px;align-items:center;padding:10px 14px;margin:8px 0 14px;flex-wrap:wrap}
+.top>div:not(.mas){flex:1;min-width:150px}
+button,.btn{font:600 1rem Fredoka,sans-serif;background:var(--p);color:#fff;border:3px solid var(--ink);border-radius:10px;padding:9px 16px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}
+button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+.ghost{background:#fff;color:var(--ink)}.ok{background:var(--m);color:var(--ink)}
+.row{display:flex;gap:10px;justify-content:space-between;margin-top:16px;flex-wrap:wrap}
+input,select{width:100%;font:inherit;padding:10px;margin:6px 0;border:3px solid var(--ink);border-radius:10px;background:#fff}
+.mas{width:54px;height:54px;border-radius:14px;background:var(--y);border:3px solid var(--ink);position:relative;flex:none;animation:hop 1.8s ease-in-out infinite}
+.mas:before{content:"";position:absolute;left:12px;top:15px;width:7px;height:9px;border-radius:50%;background:var(--ink);box-shadow:16px 0 0 var(--ink)}
+.mas:after{content:"";position:absolute;left:16px;top:30px;width:16px;height:8px;border-bottom:3px solid var(--ink);border-radius:0 0 12px 12px}
+.big{width:84px;height:84px;margin:0 auto 8px;display:block}.big:before{left:20px;top:24px;box-shadow:24px 0 0 var(--ink)}.big:after{left:26px;top:48px;width:24px}
+@keyframes hop{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.mas{animation:none}}
+.hub{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mc{padding:10px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:4px;min-height:118px}
+.mc b{font-family:Fredoka;line-height:1.15}
+.mc small{font-size:.8rem}
+.mc .ad{font:600 .8rem Fredoka;background:var(--y);border:2px solid var(--ink);border-radius:6px;padding:0 6px;align-self:flex-start}
+.mc.dn{background:#e8fbf5}.mc.lk{background:#eee;color:#777;cursor:not-allowed;box-shadow:none}
+@media(max-width:520px){.hub{grid-template-columns:repeat(2,1fr)}}
+.pb{height:14px;border:3px solid var(--ink);border-radius:9px;background:#fff;overflow:hidden;margin-bottom:10px}.pb i{display:block;height:100%;background:var(--o);transition:width .3s}
+.gw{overflow-x:auto;margin:10px 0}
+table.g,table.v{border-collapse:collapse;font-size:.95rem}
+table.g th{background:#e9e3fb;font-weight:700}
+table.g td,table.g th,table.v td,table.v th{border:2px solid var(--ink);padding:4px 12px;text-align:center}
+table.g td.on{background:var(--y);outline:3px solid var(--o);outline-offset:-3px}
+table.v th{background:var(--p);color:#fff}
+.cd{display:inline-block;font:700 .95rem ui-monospace,Consolas,monospace;background:#efe9ff;border:2px solid var(--ink);border-radius:8px;padding:2px 8px;word-break:break-all}
+.flow{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+.flow span{background:var(--m);border:3px solid var(--ink);border-radius:10px;padding:6px 12px}.flow i{font-size:.85rem}
+.q{margin:14px 0;padding-bottom:10px;border-bottom:2px dashed #bbb}
+.op{display:block;border:3px solid var(--ink);border-radius:10px;padding:8px 10px;margin:6px 0;cursor:pointer;background:#fff}
+.op:has(input:checked){background:#efe9ff;border-color:var(--p)}
+.op input{width:auto;margin:0 8px 0 0}
+.bn{background:#d6f7ec}.sl{background:#ffe0e8}
+.sc{font:600 4rem Fredoka;text-align:center;line-height:1}
+#pv{max-width:100%;max-height:260px;border:3px solid var(--ink);border-radius:10px;margin:8px 0}
+.ex{font-size:.9rem;margin:4px 0 0}
+</style></head><body><div id="app"></div>
+<script>
+/* ===== PENGATURAN ===== */
+const API="https://script.google.com/macros/s/AKfycbzfuAWg_p-pC54PFryx-GS-sldFT1v0I7FicBoHQvXh8DloA_PbWjhs2-7u71xqW2gU/exec"; // tempel URL Web App Apps Script di sini. Kosong = mode demo (data hanya di perangkat ini)
+const KELAS=["X E1","X E2","X E3","X E4","X E5","X E6","X E7","X E8","X E9"], MAXTRY=2;
+
+/* ===== DATA TABEL CONTOH ===== */
+const D=[["Nama","Nilai","Hadir","Kelas"],["Ani",80,"Hadir","E1"],["Budi",65,"Hadir","E2"],["Citra",90,"Alpa","E1"],["Dodi",75,"Hadir","E1"],["Eka",70,"Hadir","E2"]];
+function grid(hl){
+ const R=(hl||"").split(",").filter(Boolean).map(s=>{const m=s.match(/([A-D])(\d+):([A-D])(\d+)/);return[m[1].charCodeAt(0),+m[2],m[3].charCodeAt(0),+m[4]]});
+ let h='<div class="gw"><table class="g"><tr><th></th>'+"ABCD".split("").map(c=>"<th>"+c+"</th>").join("")+"</tr>";
+ D.forEach((r,i)=>{h+="<tr><th>"+(i+1)+"</th>"+r.map((v,j)=>{const c=65+j,n=i+1,on=R.some(x=>c>=x[0]&&c<=x[2]&&n>=x[1]&&n<=x[3]);return'<td class="'+(on?"on":"")+'">'+v+"</td>"}).join("")+"</tr>"});
+ return h+"</table></div>"}
+const F=(id,t,def,syn,ex,res,hl,use,err,qs)=>({id,t,qs,steps:[
+ ["Apa itu "+t+"?",def],
+ ["Sintaks (cara menulis)",`<p>Bentuk penulisannya:</p><p class="cd">${syn}</p><p>Awali selalu dengan tanda <b>=</b>. Di Excel berbahasa Indonesia pemisah argumen biasanya titik koma (;), di versi lain koma (,).</p>`],
+ ["Contoh pada tabel",`<p>Perhatikan data nilai siswa. Sel yang dipakai ditandai kuning.</p>${grid(hl)}<p>Rumus: <span class="cd">${ex}</span></p><p>Hasil: <b>${res}</b></p>${bdx(id)}`],
+ ["Kegunaan dan kesalahan umum",`<p><b>Cocok untuk data:</b> ${use}</p><p><b>Awas:</b> ${err}</p>`]]});
+
+/* ===== PENJELASAN TEKS RUMUS LOGIKA ===== */
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const BD={
+if:{t:'Jika nilai di B2 lebih dari atau sama dengan 75, tampilkan "Lulus". Jika tidak, tampilkan "Remedial".<br>Contoh Budi (B3 = 65): 65 tidak memenuhi syarat >=75, jadi hasilnya Remedial.',p:[['IF(','Mulai pengecekan berdasarkan sebuah syarat'],['B2>=75','Syarat yang dicek: apakah nilai di B2 sama dengan atau lebih dari 75?'],[';"Lulus"','Hasil yang ditampilkan jika syarat BENAR'],[';"Remedial"','Hasil yang ditampilkan jika syarat SALAH']]},
+countif:{t:'Hitung berapa sel di C2 sampai C6 yang isinya "Hadir".<br>Ani, Budi, Dodi, dan Eka tertulis Hadir, sedangkan Citra Alpa, jadi hasilnya 4.',p:[['COUNTIF(','Hitung sel yang memenuhi satu kriteria'],['C2:C6','Area yang diperiksa (kolom Hadir)'],[';"Hadir"','Kriteria: hanya sel bertuliskan Hadir yang dihitung']]},
+countifs:{t:'Hitung berapa baris yang kolom C-nya "Hadir" DAN kolom D-nya "E1" sekaligus.<br>Ani dan Dodi memenuhi keduanya. Citra E1 tetapi Alpa, Budi dan Eka Hadir tetapi E2. Jadi hasilnya 2.',p:[['COUNTIFS(','Hitung baris yang memenuhi beberapa kriteria sekaligus'],['C2:C6;"Hadir"','Pasangan 1: kolom Hadir harus berisi Hadir'],['D2:D6;"E1"','Pasangan 2: kolom Kelas harus berisi E1'],['Kedua pasangan','Baris hanya dihitung jika KEDUANYA terpenuhi (logika DAN)']]}};
+function bdx(id){const b=BD[id];if(!b)return"";return`<div class="card bn" style="box-shadow:none"><b>Penjelasan:</b><br>${b.t}</div><p><b>Bedah rumus:</b></p><div class="gw"><table class="v"><tr><th>Bagian rumus</th><th>Artinya</th></tr>${b.p.map(x=>`<tr><td style="text-align:left"><span class="cd">${esc(x[0])}</span></td><td style="text-align:left">${x[1]}</td></tr>`).join("")}</table></div>`}
+
+/* ===== MODUL: soal = [pertanyaan, jawaban BENAR, salah1, salah2, pembahasan] (opsi diacak otomatis) ===== */
+const M=[
+F("sum","SUM","Fungsi untuk menjumlahkan semua angka pada sebuah rentang sel.","=SUM(<i>rentang</i>)","=SUM(B2:B6)","380","B2:B6","total belanja, total pemasukan kas kelas, jumlah nilai.","Sel berisi teks tidak ikut dijumlahkan. Pastikan angka tidak tertulis sebagai teks.",[
+ ["Rumus untuk menjumlahkan sel B2 sampai B6 adalah...","=SUM(B2:B6)","=ADD(B2:B6)","=TOTAL(B2:B6)","SUM adalah fungsi penjumlahan, rentang ditulis dengan titik dua."],
+ ["Hasil =SUM(B2:B6) pada tabel contoh adalah...","380","76","90","80+65+90+75+70 = 380."],
+ ["Yang dijumlahkan oleh SUM adalah...","Angka pada rentang sel","Semua huruf pada sel","Hanya sel kosong","SUM hanya menjumlahkan nilai angka."]]),
+F("avg","AVERAGE","Fungsi untuk mencari nilai rata-rata dari sekumpulan angka.","=AVERAGE(<i>rentang</i>)","=AVERAGE(B2:B6)","76","B2:B6","rata-rata nilai ulangan, rata-rata penjualan harian, rata-rata suhu.","Sel kosong diabaikan, tetapi angka 0 tetap dihitung dan menurunkan rata-rata.",[
+ ["Fungsi untuk mencari rata-rata adalah...","AVERAGE","MEAN","TOTALAVG","AVERAGE menghitung jumlah dibagi banyak data."],
+ ["Hasil =AVERAGE(B2:B6) pada tabel contoh adalah...","76","380","75","380 dibagi 5 data = 76."],
+ ["AVERAGE paling cocok untuk...","Mencari rata-rata nilai ulangan","Mencari nilai tertinggi","Menghitung jumlah siswa hadir","Rata-rata menggambarkan nilai tengah dari data."]]),
+F("maxmin","MAX dan MIN","MAX mencari nilai terbesar, MIN mencari nilai terkecil dari sebuah rentang.","=MAX(<i>rentang</i>) dan =MIN(<i>rentang</i>)","=MAX(B2:B6) dan =MIN(B2:B6)","90 dan 65","B2:B6","nilai tertinggi dan terendah, harga termurah, suhu tertinggi.","MAX dan MIN hanya menghasilkan angkanya. Untuk tahu nama siswanya perlu rumus lain.",[
+ ["Rumus nilai tertinggi pada B2:B6 adalah...","=MAX(B2:B6)","=HIGH(B2:B6)","=TOP(B2:B6)","MAX untuk nilai terbesar."],
+ ["=MIN(B2:B6) pada tabel contoh menghasilkan...","65","90","70","Nilai terkecil pada B2:B6 adalah 65 (Budi)."],
+ ["Untuk mencari harga paling murah dari daftar harga dipakai...","MIN","MAX","SUM","Harga termurah adalah nilai terkecil."]]),
+F("if","IF","Fungsi logika yang memberi hasil berbeda tergantung syaratnya benar atau salah.",'=IF(<i>syarat</i>; <i>hasil_jika_benar</i>; <i>hasil_jika_salah</i>)','=IF(B2>=75;"Lulus";"Remedial")',"Lulus (nilai Ani 80)","B2:B2","status lulus atau remedial, diskon atau tidak, hadir atau tidak.","Teks hasil harus diapit tanda petik dua. Angka dan alamat sel tidak perlu tanda petik.",[
+ ["Rumus agar nilai B3 (65) menghasilkan Remedial bila kurang dari 75 adalah...",'=IF(B3>=75;"Lulus";"Remedial")','=IF(B3<75;"Lulus";"Remedial")','=IF(B3;"Lulus")',"Jika nilai 75 atau lebih Lulus, selain itu Remedial."],
+ ["Teks hasil di dalam rumus IF ditulis dengan...","Tanda petik dua","Kurung siku","Tanda bintang","Teks dalam rumus harus diapit tanda petik dua."],
+ ['=IF(B4>=75;"Lulus";"Remedial") pada B4 bernilai 90 menghasilkan...',"Lulus","Remedial","90","90 memenuhi syarat >=75 sehingga hasilnya Lulus."]]),
+F("countif","COUNTIF","Fungsi untuk menghitung banyak sel yang memenuhi satu kriteria.",'=COUNTIF(<i>rentang</i>; <i>kriteria</i>)','=COUNTIF(C2:C6;"Hadir")',"4","C2:C6","jumlah siswa hadir, jumlah barang terjual, jumlah nilai di atas batas.",'Kriteria teks memakai tanda petik. Kriteria dengan operator ditulis seperti ">=75".',[
+ ["Fungsi untuk menghitung banyak sel yang memenuhi satu syarat adalah...","COUNTIF","SUMIF","COUNTALL","COUNTIF = hitung sel jika memenuhi kriteria."],
+ ['=COUNTIF(C2:C6;"Alpa") pada tabel contoh menghasilkan...',"1","4","5","Hanya Citra yang Alpa."],
+ ["Kriteria berupa teks pada COUNTIF ditulis...","Di dalam tanda petik dua","Tanpa tanda apa pun","Di dalam kurung siku","Teks selalu diapit tanda petik dua."]]),
+F("countifs","COUNTIFS","Fungsi untuk menghitung sel yang memenuhi dua kriteria atau lebih sekaligus.",'=COUNTIFS(<i>rentang1</i>; <i>kriteria1</i>; <i>rentang2</i>; <i>kriteria2</i>)','=COUNTIFS(C2:C6;"Hadir";D2:D6;"E1")',"2 (Ani dan Dodi)","C2:D6","jumlah siswa hadir dari kelas tertentu, penjualan produk tertentu di kota tertentu.","Setiap rentang harus sama panjang, dan semua kriteria harus terpenuhi sekaligus.",[
+ ["Perbedaan COUNTIF dan COUNTIFS adalah...","COUNTIFS dapat memakai lebih dari satu kriteria","COUNTIFS untuk menjumlah angka","Keduanya sama persis","COUNTIFS menggabungkan beberapa syarat."],
+ ['=COUNTIFS(C2:C6;"Hadir";D2:D6;"E2") menghasilkan...',"2","3","1","Budi dan Eka hadir dan berkelas E2."],
+ ['Kesalahan pada =COUNTIFS(C2:C6;"Hadir";D2:D5;"E1") adalah...',"Panjang kedua rentang tidak sama","Tanda petik salah","Fungsi tidak ada","C2:C6 berisi 5 sel, D2:D5 hanya 4 sel."]]),
+{id:"copas",t:"Cut, Copy, Paste",note:"tiga perintah (Cut, Copy, Paste), tabel perbedaan Cut dan Copy, serta empat pilihan Paste Special.",steps:[
+ ["Tiga perintah dasar","<p><b>Cut (Ctrl+X)</b> memindahkan: data di tempat lama hilang.</p><p><b>Copy (Ctrl+C)</b> menggandakan: data di tempat lama tetap ada.</p><p><b>Paste (Ctrl+V)</b> menempelkan hasil Cut atau Copy ke tempat baru.</p>"],
+ ["Beda Cut dan Copy",'<div class="gw"><table class="v"><tr><th></th><th>Cut</th><th>Copy</th></tr><tr><td>Data asal</td><td>Hilang</td><td>Tetap</td></tr><tr><td>Hasil</td><td>Satu data</td><td>Dua data</td></tr><tr><td>Dipakai untuk</td><td>Memindahkan</td><td>Menggandakan</td></tr></table></div>'],
+ ["Paste Special","<p>Menempel dengan pilihan: <b>Values</b> (hanya hasil, bukan rumus), <b>Formulas</b> (rumusnya saja), <b>Formatting</b> (tampilannya saja), dan <b>Transpose</b> (baris menjadi kolom).</p><p>Values berguna agar hasil rumus tidak berubah ketika data asal diubah atau dihapus.</p>"]],qs:[
+ ["Perintah yang memindahkan data dan menghapusnya dari tempat asal adalah...","Cut","Copy","Paste","Cut = pindah, data asal hilang."],
+ ["Pintasan keyboard untuk Copy adalah...","Ctrl+C","Ctrl+X","Ctrl+V","C = Copy, X = Cut, V = Paste."],
+ ["Paste Special Values dipakai untuk...","Menempel hasil rumus sebagai angka biasa","Menghapus seluruh data","Mengubah warna sel","Values menempel nilainya saja tanpa rumus."]]}
+];
+
+/* ===== STATE ===== */
+const $=s=>document.querySelector(s),A=$("#app");
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+let U=JSON.parse(localStorage.getItem("sg_u")||"null"),P=JSON.parse(localStorage.getItem("sg_p")||"{}"),S={v:U?"hub":"login"},IMG="";
+const key=u=>[u.kelas,u.nama.toLowerCase()].join("|");
+const save=()=>{localStorage.setItem("sg_u",JSON.stringify(U));localStorage.setItem("sg_p",JSON.stringify(P))};
+const api=async b=>{if(!API)return;try{await fetch(API,{method:"POST",body:JSON.stringify(Object.assign({user:U,prog:P},b))})}catch(e){}};
+const go=(v,x)=>{S=Object.assign({v},x||{});R();scrollTo(0,0)};
+const noteOf=m=>m.note||("judul "+m.t+", fungsinya, sintaks, serta satu contoh rumus beserta hasilnya.");
+
+/* ===== TAMPILAN ===== */
+function R(){A.innerHTML=S.v=="login"?VL():S.v=="hub"?VH():S.v=="prof"?VP():VM()}
+function VL(){return`<div class="card" style="text-align:center"><div class="mas big"></div><h1>Belajar Rumus Excel</h1><p>Ikuti tutorial selangkah demi selangkah, catat di bukumu, lalu kerjakan kuis.</p>
+<div style="text-align:left"><label>Kelas<select id="kl">${KELAS.map(k=>"<option>"+k+"</option>").join("")}</select></label><label>Nama lengkap<input id="nm" autocomplete="name"></label></div>
+<p id="er" style="color:#c0002d;margin:6px 0"></p><button id="bl" onclick="login()">Mulai belajar</button></div>`}
+async function login(){
+ const k=$("#kl").value,n=$("#nm").value.trim().replace(/\s+/g," ");
+ if(!n){$("#er").textContent="Isi nama lengkap dulu.";return}
+ U={kelas:k,nama:n};$("#bl").disabled=true;$("#bl").textContent="Memuat...";
+ if(API){try{const r=await(await fetch(API+"?key="+encodeURIComponent(key(U)))).json();if(r.prog)P=r.prog}catch(e){}}
+ save();api({type:"login"});go("hub")}
+function out(){if(confirm("Keluar dari akun ini?")){localStorage.removeItem("sg_u");localStorage.removeItem("sg_p");U=null;P={};go("login")}}
+function VP(){return`<div class="top"><button class="ghost" onclick="go('hub')">Kembali</button><b class="t">Ubah profil</b></div><div class="card"><label>Kelas<select id="kl">${KELAS.map(k=>"<option"+(k==U.kelas?" selected":"")+">"+k+"</option>").join("")}</select></label><label>Nama lengkap<input id="nm" value="${esc(U.nama).replace(/"/g,"&quot;")}"></label><p class="ex">Progres dan nilai yang sudah ada ikut pindah ke profil baru.</p><p id="er" style="color:#c0002d"></p><button onclick="editProf()">Simpan profil</button></div>`}
+async function editProf(){const k=$("#kl").value,n=$("#nm").value.trim().replace(/\s+/g," ");if(!n){$("#er").textContent="Nama tidak boleh kosong.";return}
+ if(k==U.kelas&&n==U.nama){go("hub");return}
+ const lama=U;U={kelas:k,nama:n};save();await api({type:"profil",lama});go("hub")}
+function VH(){
+ const dn=M.filter(m=>(P[m.id]||{}).n),avg=dn.length?Math.round(dn.reduce((a,m)=>a+P[m.id].s,0)/dn.length):0;
+ return`<div class="top"><div class="mas"></div><div><b class="t">${esc(U.nama)}</b><br>${U.kelas}<br>Selesai ${dn.length}/${M.length}. Rata-rata nilai: <b>${avg}</b></div><button class="ghost" onclick="go('prof')">Ubah profil</button><button class="ghost" onclick="out()">Keluar</button></div>
+<div class="hub">${M.map((m,i)=>{const p=P[m.id]||{},lk=i&&!(P[M[i-1].id]||{}).n;
+ return`<button class="mc ${lk?"lk":p.n?"dn":""}" ${lk?"disabled":`onclick="go('m',{m:${i},ph:'c',st:0})"`}><span class="ad">${"ABC"[i%3]}${Math.floor(i/3)+1}</span><b>${m.t}</b><small>${lk?"Selesaikan modul sebelumnya":p.n?"Nilai terbaik: "+p.s:p.b?"Catatan terkirim, siap kuis":"Belum dimulai"}</small></button>`}).join("")}</div>`}
+function VM(){
+ const m=M[S.m],p=P[m.id]||{},hd=`<div class="top"><button class="ghost" onclick="go('hub')">Peta modul</button><b class="t">${m.t}</b></div>`;
+ if(S.ph=="c")return hd+`<div class="card"><h2>Siapkan buku catatanmu</h2><p>Sebelum membaca tutorial, ambil buku dan pulpen. Selama tutorial, tulis di bukumu:</p><p class="card bn" style="box-shadow:none;margin:8px 0">${noteOf(m)}</p><p>Setelah tutorial selesai, kamu akan memotret catatanmu sebagai bukti, baru boleh mengerjakan kuis.</p>
+ <div class="row"><span></span><span>${p.b?`<button class="ghost" onclick="go('m',{m:S.m,ph:'q'})">Langsung ke kuis</button> `:""}<button onclick="go('m',{m:S.m,ph:'t',st:0})">Aku siap, mulai tutorial</button></span></div></div>`;
+ if(S.ph=="t"){const n=m.steps.length,s=m.steps[S.st],last=S.st==n-1;
+  return hd+`<div class="card"><div class="pb"><i style="width:${(S.st+1)/n*100}%"></i></div><small>Langkah ${S.st+1} dari ${n}</small><h2>${s[0]}</h2>${s[1]}
+  <div class="row"><button class="ghost" ${S.st?"":"disabled"} onclick="S.st--;R()">Kembali</button><button onclick="${last?"go('m',{m:S.m,ph:'b'})":"S.st++;R();scrollTo(0,0)"}">${last?"Selesai, kirim catatan":"Lanjut"}</button></div></div>`}
+ if(S.ph=="b")return hd+`<div class="card"><h2>Kirim bukti catatan</h2>${p.b?`<p class="card bn" style="box-shadow:none">Bukti catatan modul ini sudah terkirim.</p><div class="row"><span></span><button class="ok" onclick="go('m',{m:S.m,ph:'q'})">Lanjut ke kuis</button></div>`:
+  `<p>Foto halaman catatanmu sampai tulisannya terbaca jelas, lalu kirim.</p><input id="fi" type="file" accept="image/*" onchange="prev()"><img id="pv" hidden alt="Pratinjau catatan"><div class="row"><button class="ghost" onclick="go('m',{m:S.m,ph:'t',st:0})">Lihat tutorial lagi</button><button id="sb" disabled onclick="kirim()">Kirim bukti</button></div>`}</div>`;
+ if(S.ph=="q"){if(!S.qz){S.t0=Date.now();S.qz=shuf(m.qs).map(q=>({q:q[0],c:q[1],o:shuf(q.slice(1,4)),e:q[4]}))}
+  return hd+`<div class="card"><h2>Kuis ${m.t}</h2><p>Jawab semua soal lalu kirim. Kamu punya ${MAXTRY} kesempatan, nilai tertinggi yang dipakai. Percobaan ke-${(p.n||0)+1}.</p>${S.qz.map((q,i)=>`<div class="q"><b>${i+1}. ${esc(q.q)}</b>${q.o.map((o,j)=>`<label class="op"><input type="radio" name="q${i}" value="${j}"> ${esc(o)}</label>`).join("")}</div>`).join("")}<p id="er" style="color:#c0002d"></p><button onclick="nilai()">Kirim jawaban</button></div>`}
+ const r=S.res,nx=S.m<M.length-1;
+ return hd+`<div class="card"><div class="mas big"></div><div class="sc" style="color:${r.s>=75?"#12906f":"#c0002d"}">${r.s}</div><p style="text-align:center">${r.b} dari ${r.n} soal benar. ${r.s>=75?"Mantap, kamu tuntas!":"Belum tuntas, pelajari pembahasan di bawah."}</p>
+ ${r.d.map((x,i)=>`<div class="card ${x.ok?"bn":"sl"}" style="box-shadow:none"><b>${i+1}. ${esc(x.q)}</b><p class="ex">Jawabanmu: ${esc(x.a)} (${x.ok?"benar":"salah"})<br>Jawaban benar: ${esc(x.c)}<br>${esc(x.e)}</p></div>`).join("")}
+ <div class="row">${(P[m.id].n<MAXTRY)?`<button class="ghost" onclick="S.qz=null;S.ph='q';R();scrollTo(0,0)">Coba lagi</button>`:"<span></span>"}<button class="ok" onclick="go('${nx?"hub":"hub"}')">${nx?"Ke peta modul":"Selesai, lihat rekap"}</button></div></div>`}
+function prev(){const f=$("#fi").files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);IMG=c.toDataURL("image/jpeg",.6);$("#pv").src=IMG;$("#pv").hidden=false;$("#sb").disabled=false};im.src=r.result};r.readAsDataURL(f)}
+async function kirim(){const m=M[S.m];$("#sb").disabled=true;$("#sb").textContent="Mengirim...";P[m.id]=Object.assign(P[m.id]||{},{b:1});save();await api({type:"bukti",mod:m.t,img:IMG.split(",")[1]});S.qz=null;go("m",{m:S.m,ph:"q"})}
+function nilai(){
+ const m=M[S.m],d=[];let b=0;
+ for(let i=0;i<S.qz.length;i++){const c=document.querySelector(`input[name=q${i}]:checked`);if(!c){$("#er").textContent="Soal nomor "+(i+1)+" belum dijawab.";return}
+  const q=S.qz[i],a=q.o[+c.value],ok=a==q.c;if(ok)b++;d.push({q:q.q,a,c:q.c,e:q.e,ok})}
+ const s=Math.round(b/S.qz.length*100),p=P[m.id]=Object.assign({b:1},P[m.id]);p.n=(p.n||0)+1;p.s=Math.max(p.s||0,s);save();
+ api({type:"nilai",mod:m.t,coba:p.n,skor:s,benar:b,total:S.qz.length,dur:Math.round((Date.now()-S.t0)/1000)});
+ S.res={s,b,n:S.qz.length,d};S.ph="h";R();scrollTo(0,0)}
+R();
+</script></body></html>
